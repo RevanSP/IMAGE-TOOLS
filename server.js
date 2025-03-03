@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const sharp = require('sharp');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -8,13 +9,13 @@ const port = 3000;
 const upload = multer({
     storage: multer.memoryStorage(),
     fileFilter: (_, file, cb) => cb(
-        ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/tiff', 'image/avif', 'image/svg+xml'].includes(file.mimetype)
+        ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/tiff', 'image/avif'].includes(file.mimetype)
             ? null : new Error('Format file tidak didukung!'),
         true
     )
 });
 
-const supportedFormats = ['jpeg', 'jpg', 'png', 'gif', 'webp', 'avif', 'tiff', 'svg+xml'];
+const supportedFormats = ['jpeg', 'jpg', 'png', 'gif', 'webp', 'avif', 'tiff'];
 
 const convertImage = async (req, res, download = false) => {
     if (!req.file) return res.status(400).send('Tidak ada file yang diupload');
@@ -48,7 +49,7 @@ const convertImage = async (req, res, download = false) => {
     }
 };
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/convert', upload.single('image'), (req, res) => convertImage(req, res));
 app.post('/convert-download', upload.single('image'), (req, res) => convertImage(req, res, true));
