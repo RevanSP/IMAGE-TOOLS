@@ -15,14 +15,16 @@ fileInput.addEventListener("change", (event) => {
         const img = new Image();
         img.onload = () => {
             const ctx = canvas.getContext("2d");
+            const dpr = window.devicePixelRatio || 1;
             const fixedWidth = 320, fixedHeight = fixedWidth * 9 / 16;
             const aspectRatio = img.naturalWidth / img.naturalHeight;
             const [drawWidth, drawHeight] = aspectRatio > 1 
                 ? [fixedWidth, fixedWidth / aspectRatio] 
                 : [fixedHeight * aspectRatio, fixedHeight];
 
-            canvas.width = fixedWidth;
-            canvas.height = fixedHeight;
+            canvas.width = fixedWidth * dpr;
+            canvas.height = fixedHeight * dpr;
+            ctx.scale(dpr, dpr);
             const offsetX = (fixedWidth - drawWidth) / 2, offsetY = (fixedHeight - drawHeight) / 2;
             ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
         };

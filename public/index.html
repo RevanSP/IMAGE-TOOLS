@@ -5,49 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMG TOOLS</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/RevanSP/TEMPORARY-MAIL-GENERATOR/refs/heads/main/public/assets/favicon.avif?token=GHSAT0AAAAAADQ3P7XUYDR5A5VZ36CNOG5I2KLB5MA">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <script src="https://unpkg.com/lucide@latest"></script>
     <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="bg-base-300 h-screen flex justify-center items-center">
-    <div class="zoom px-12">
-        <div role="tablist" class="tabs tabs-bordered shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black">
+<body class="bg-[#FAE635] h-screen flex justify-center items-center">
+  <div class="px-8 md:px-12 zoom">
+        <div role="tablist" class="tabs tabs-bordered shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black bg-[#FAE635]">
             <input type="radio" name="img-tool" role="tab" class="tab" aria-label="IMG&nbsp;COLOR" checked />
-            <div role="tabpanel" class="tab-content bg-base-100 border-base-300 p-0">
+            <div role="tabpanel" class="tab-content bg-base-100 border-black border-2 rounded-none p-0">
                 <div class="card bg-base-100">
                     <div class="card-body">
                         <h2 class="card-title flex justify-center items-center font-bold mb-4">COLOR PICKER FROM IMG
                         </h2>
                         <input type="file" id="fileInput"
-                            class="bg-base-300 file-input file-input-bordered border-2 border-black rounded-none border-neutral-content shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+                            class="bg-[#FAE635] file-input file-input-sm text-xs file-input-bordered w-full border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
                             accept="image/*" />
                         <div
-                            class="mt-4 max-h-[80vh] overflow-y-auto p-4 border-2 border-black rounded-none bg-base-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                            class="mt-4 max-h-[120vh] overflow-y-auto p-4 border-2 border-black rounded-none bg-[#FAE635] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">
                             <canvas id="imageCanvas"
                                 class="rounded-none border-2 border-black aspect-[16/9] w-full bg-base-100"></canvas>
                         </div>
                         <input
-                            class="input input-bordered  w-full border-2 input-sm border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] mt-4 bg-base-300"
+                            class="input input-bordered  w-full border-2 input-sm text-xs border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px] mt-4 bg-[#FAE635]"
                             placeholder="COLOR PALETTE OUTPUT" readonly />
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-                            <div class="join border-2 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                                <input id="hexInput" class="input input-bordered input-sm join-item w-full bg-base-300"
+                            <div class="join border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">
+                                <input id="hexInput" class="input input-bordered input-sm text-xs join-item w-full bg-[#FAE635]"
                                     placeholder="HEXADECIMAL" readonly />
                                 <button id="copyHex"
-                                    class="btn join-item btn-sm !rounded-none border-l-black border-2">COPY</button>
+                                    class="btn join-item btn-sm !rounded-none border-l-black border-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">COPY</button>
                             </div>
-                            <div class="join border-2 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                                <input id="rgbInput" class="input input-bordered join-item input-sm w-full bg-base-300"
+                            <div class="join border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">
+                                <input id="rgbInput" class="input input-bordered join-item text-xs input-sm w-full bg-[#FAE635]"
                                     placeholder="RED, GREEN, BLUE" readonly />
                                 <button id="copyRgb"
-                                    class="btn join-item btn-sm !rounded-none border-l-black border-2">COPY</button>
+                                    class="btn join-item btn-sm !rounded-none border-l-black border-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">COPY</button>
                             </div>
-                            <div class="join border-2 border-black rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                                <input id="hslInput" class="input input-bordered input-sm join-item w-full bg-base-300"
+                            <div class="join border-2 border-black rounded-none shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">
+                                <input id="hslInput" class="input input-bordered input-sm text-xs join-item w-full bg-[#FAE635]"
                                     placeholder="HUE, SATURATION, LIGHTNESS" readonly />
                                 <button id="copyHsl"
-                                    class="btn join-item btn-sm !rounded-none border-l-black border-2">COPY</button>
+                                    class="btn join-item btn-sm !rounded-none border-l-black border-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">COPY</button>
                             </div>
                         </div>
                     </div>
@@ -55,14 +92,22 @@
             </div>
             <input type="radio" name="img-tool" role="tab" class="tab" aria-label="IMG&nbsp;FORMAT" />
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 p-0">
-                <div class="card bg-base-100 max-w-4xl">
+                <div class="card bg-base-100">
                     <div class="card-body">
                         <h2 class="card-title flex justify-center items-center font-bold mb-4">IMG FORMAT CONVERTER</h2>
                         <input type="file" accept=".jpeg,.jpg,.png,.webp,.avif,.tiff" id="fileInputs"
-                            class="file-input file-input-bordered w-full shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none bg-base-300 mb-3" />
+                            class="file-input file-input-bordered w-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px] border-2 border-black rounded-none bg-[#FAE635] mb-3" />
                         <div class="join">
                             <select
-                                class="select select-bordered w-full join-item shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none bg-base-300"
+                                class="select select-bordered w-full join-item shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px] border-2 border-black !rounded-none bg-[#FAE635]"
                                 id="formatSelect">
                                 <option disabled selected>FORMAT</option>
                                 <option value="jpeg">JPG</option>
@@ -73,32 +118,56 @@
                                 <option value="tiff">TIFF</option>
                             </select>
                             <button
-                                class="btn join-item shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none bg-base-300"
+                                class="btn join-item shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px] border-2 border-black rounded-none bg-[#FAE635]"
                                 id="convertButton">CONVERT</button>
                             <button
-                                class="btn join-item shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none bg-base-300"
+                                class="btn join-item shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px] border-2 border-black !rounded-none bg-[#FAE635]"
                                 id="saveButton" disabled>SAVE</button>
                         </div>
                         <div
-                            class="p-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-none bg-base-300 mt-4 max-h-[40vh] overflow-y-auto">
-                            <canvas id="canvas" class="w-full border-2 border-black bg-base-100"></canvas>
+                            class="p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px] border-2 border-black !rounded-none bg-[#FAE635] mt-4 max-h-[100vh] overflow-y-auto">
+                            <canvas id="canvas" class="rounded-none border-2 border-black aspect-[16/9] w-full bg-base-100"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-            <input type="radio" name="img-tool" role="tab" class="tab bg-base-200" aria-label="DEV">
+            <input type="radio" name="img-tool" role="tab" class="tab" aria-label="DEV">
             <div role="tabpanel" class="tab-content bg-base-100 border-base-300 p-6">
                 <div class="card bg-base-100">
                     <div class="card-body">
-                        <a href="https://www.instagram.com/m9nokuro"
-                            class="btn w-full btn-white border-2 rounded border-black  shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                            <i class="bi bi-instagram text-xl"></i> @m9nokuro</a>
+                          <a href="https://www.instagram.com/m9nokuro"
+                            class="btn w-full bg-[#FAE635] border-2 rounded-none border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]">
+                             <i data-lucide="instagram" class="w-5 h-5"></i> @m9nokuro</a>
                         <a href="https://web.facebook.com/profile.php?id=100082958149027&_rdc=1&_rdr"
-                            class="btn w-full btn-white border-2 rounded border-black mt-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"><i
-                                class="bi bi-facebook text-xl"></i> @Reiivan</a>
+                            class="btn w-full bg-[#FAE635] border-2 rounded-none border-black mt-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"><i data-lucide="facebook" class="w-5 h-5"></i> @Reiivan</a>
                         <a href="https://github.com/RevanSP"
-                            class="btn w-full btn-white border-2 rounded border-black mt-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"><i
-                                class="bi bi-github text-xl"></i> @RevanSP</a>
+                            class="btn w-full bg-[#FAE635] border-2 rounded-none border-black mt-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] 
+        transition-all duration-200 ease-in-out
+        hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-x-[2px] hover:translate-y-[2px]
+        active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"><i data-lucide="github" class="w-5 h-5"></i> @RevanSP</a>
+                        
+                     
                     </div>
                 </div>
             </div>
@@ -106,6 +175,9 @@
     </div>
     <script src="/color-img.js"></script>
     <script src="/format-img.js"></script>
+     <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
