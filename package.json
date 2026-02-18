@@ -1,7 +1,19 @@
 {
+  "name": "image-converter",
+  "version": "1.0.0",
+  "main": "netlify/functions/api.js",
+  "scripts": {
+    "dev": "netlify dev",
+    "start": "netlify dev",
+    "build": "echo Building..."
+  },
   "dependencies": {
     "express": "^4.21.2",
     "multer": "^1.4.5-lts.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
   }
 }

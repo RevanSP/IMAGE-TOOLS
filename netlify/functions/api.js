@@ -1,10 +1,9 @@
 const express = require('express');
 const multer = require('multer');
 const sharp = require('sharp');
-const path = require('path');
+const serverless = require('serverless-http');
 
 const app = express();
-const port = 3000;
 
 const upload = multer({
     storage: multer.memoryStorage(),
@@ -49,9 +48,7 @@ const convertImage = async (req, res, download = false) => {
     }
 };
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.post('/api/convert', upload.single('image'), (req, res) => convertImage(req, res));
+app.post('/api/convert-download', upload.single('image'), (req, res) => convertImage(req, res, true));
 
-app.post('/convert', upload.single('image'), (req, res) => convertImage(req, res));
-app.post('/convert-download', upload.single('image'), (req, res) => convertImage(req, res, true));
-
-app.listen(port, () => console.log(`Server berjalan di http://localhost:${port}`));
+module.exports.handler = serverless(app);

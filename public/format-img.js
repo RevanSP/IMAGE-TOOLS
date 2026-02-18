@@ -70,10 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
       convertButton.disabled = true;
       convertButton.textContent = "CONVERTING...";
 
-      const response = await fetch(`/convert?format=${formatSelect.value}`, {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        `/api/convert?format=${formatSelect.value}`,
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
       if (!response.ok) throw new Error(await response.text());
 
@@ -120,12 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (
       !saveButton.disabled &&
       confirm(
-        "Use alternative download method?\n(Recommended for larger files)"
+        "Use alternative download method?\n(Recommended for larger files)",
       )
     ) {
       const form = document.createElement("form");
       form.method = "POST";
-      form.action = `/convert-download?format=${convertedFormat}`;
+      form.action = `/api/convert-download?format=${convertedFormat}`;
       form.target = "_blank";
 
       const clonedInput = fileInput.cloneNode(true);
